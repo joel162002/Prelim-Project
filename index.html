@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Prelim Project</title>
+        <link rel="stylesheet" href="./style/style.css">
+    </head>
+    <body>
+        <div class="container">
+          <p>OUTPUT</p>
+            <div class="border">
+                <p id="pOutput"></p>
+            </div>
+            <div class="user-input">
+                
+                <label class="label">Enter a number:</label>
+                <input type="text" id="numInput" maxlength="12">
+            </div>
+            <hr>
+            <div>
+                <button onclick="countAllDigits()">Count All Digits</button>
+                <button onclick="countAllEvenDigits()">Count All Even Digits</button>
+                <button onclick="countAllOddDigits()">Count All Odd Digits</button>
+                <button onclick="mostOccurringDigit()">Most Occurring Digit</button>
+                <button onclick="findDigit()">Find a Digit</button>
+                <button onclick="clearFields()">CLEAR</button>
+            </div>
+        </div>
+        <script src="./scripts/script.js"></script>
+    </body>
+</html>
