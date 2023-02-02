@@ -107,32 +107,42 @@ function findDigit() {
     num = removeWhitespace(num);
     // declaring a default value of false;
     let isFound = false;
-    // prompt dialog for user input
-    let input = prompt('Enter a digit');
 
-    if(input == " ") {
-        alert('Enter a digit!');
-    } else {
-        // checks if the user clicks 'OK'
-        if(input) {
-            // iterates the digits
-            for(let x of num) {
-                // checks if the x is equal to the value given by the user
-                if(x == input) {
-                    // sets the isFound to true and breaks the loop
-                    isFound = true;
-                    break;
+    // forcing the user for input
+    while(true) {
+        // prompt dialog for user input
+        let input = prompt('Enter a digit');
+        // removes any whitespace contained in the variable
+        input = removeWhitespace(input);
+        
+        //checks if the input is blank
+        if(input == "") {
+            alert('Enter a digit!');
+        } else {
+            // if the input is not null since when clicking cancel it returns null
+            if(input != null) {
+                // iterates the digits
+                for(let x of num) {
+                    // checks if the x is equal to the value given by the user
+                    if(x == input) {
+                        // sets the isFound to true and breaks the loop
+                        isFound = true;
+                        break;
+                    }
+                }  
+                // if isFound is true, it will output that it exist
+                // if it is false, it will output that it does not exist
+                if(isFound) {
+                    document.getElementById("pOutput").innerHTML = "The digit exist!";
+                } else {
+                    document.getElementById("pOutput").innerHTML = "The digit does not exist!";
                 }
-            }  
-
-            /*
-                if isFound is true, it will output that it exist
-                if it is false, it will output that it does not exist
-            */
-            if(isFound) {
-                document.getElementById("pOutput").innerHTML = "The digit exist!";
+                // breaks the loop
+                break;
             } else {
-                document.getElementById("pOutput").innerHTML = "The digit does not exist!";
+                // if the user clicks the cancel
+                // breaks the loop
+                break;
             }
         }
     }
