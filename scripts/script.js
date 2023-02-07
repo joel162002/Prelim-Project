@@ -103,6 +103,8 @@ function mostOccurringDigit() {
 function findDigit() {
     // stores the user input in the variable num
     let num = document.getElementById("numInput").value;
+    // regex pattern
+    const regex = /[A-Z]/gi;
     // removes any whitespace contained in the variable
     num = removeWhitespace(num);
     // declaring a default value of false;
@@ -115,8 +117,8 @@ function findDigit() {
         // removes any whitespace contained in the variable
         input = removeWhitespace(input);
         
-        //checks if the input is blank
-        if(input == "") {
+        //checks if the input is blank or the input matches the regex pattern
+        if(input == "" || regex.test(input)) {
             alert('Enter a digit!');
         } else {
             // if the input is not null since when clicking cancel it returns null
@@ -158,4 +160,31 @@ function clearFields() {
 // function that removes whitespace
 function removeWhitespace(text) {
     return text.replace(/\s/g, '');
+}
+
+// function that checks letter when key is pressed in text field
+function checkFieldKeypress() {
+    // regex pattern
+    const regex = /[A-Z]/i;
+    // stores the user input in the variable num
+    let input = document.getElementById("numInput").value;
+
+    // if the user input matches the regex pattern
+    if(regex.test(input)) {
+        alert('Enter only digits!');
+        // replace that letters with blank
+        input = input.replace(/[A-Z]/gi, '');
+        // outputs to text field without the letters
+        document.getElementById("numInput").value = input;
+    }
+}
+
+// function that removes letter when mouse pointer leaves the text field
+function checkFieldLeave() {
+    // stores the user input in the variable num
+    let input = document.getElementById("numInput").value;
+    // replace that letters with blank
+    input = input.replace(/[A-Z]/gi, '');
+    // outputs to text field without the letters
+    document.getElementById("numInput").value = input;
 }
